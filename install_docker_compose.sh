@@ -6,6 +6,7 @@ cleanup() {
     rm -rf "$TEMPDIR"
     docker rmi -f docker-compose-fedora || true
 }
+trap cleanup EXIT
 
 cd "$TEMPDIR"
 git clone https://github.com/ppettina/docker-compose-fedora.git
