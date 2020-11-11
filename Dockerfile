@@ -1,7 +1,6 @@
 FROM fedora:32  AS builder
 
 # docker-compose requires pyinstaller 3.6 (check github.com/docker/compose/requirements-build.txt)
-ARG VERSION
 ARG PYINSTALLER_VER=3.6
 
 ENV LANG C.UTF-8
@@ -9,6 +8,7 @@ ENV LANG C.UTF-8
 RUN dnf update -y
 RUN dnf install clang zlib-devel git python3-pip -y
 ENV CC=clang
+ARG VERSION
 RUN set -xe && \
     mkdir -p /build/pyinstallerbootloader && \
     # Compile the pyinstaller "bootloader"
