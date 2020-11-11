@@ -6,8 +6,15 @@ This repository contains helpers to build a docker-compose binary file for Fedor
 
 ## Get binary docker-compose on your current platform
 
+Clone the repo and run:
 ```bash
 docker build . -t docker-compose-fedora && docker run --rm -v /usr/local/bin:/dist docker-compose-fedora && docker rmi docker-compose-fedora
 ```
 
 You may need `sudo` to run. It will build the latest image, and run it to generate the binary docker-compose in `/usr/local/bin`.
+
+## One-line installation (probably won't work if you're enforcing selinux)
+
+```bash
+curl -sS https://raw.githubusercontent.com/ppettina/docker-compose-fedora/master/install_docker_compose.sh | bash
+```
